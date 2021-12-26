@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/> -->
+    <title>Document</title>
+</head>
+<body class='bg-secondary'>
+    <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark d-flex justify-content-between p-3"> -->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="collapsibleNavbar">
+            <div>
+                <ul class="navbar-nav">
+                    <li><a href="" class="nav-link">Logo de la empresa</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul class="navbar-nav">
+                    <li><a href="" class="nav-link">Materia (Seleciona materia)</a></li>
+                    <li><a href="" class="nav-link">Avisos</a></li>
+                    <li><a href="" class="nav-link">Tareas</a></li>
+                    <li><a href="" class="nav-link">Plan de calificaciones</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-link"><h5 id='elemTema'><i class="fas fa-adjust"></i></h5></li>
+                    <li><a href="" class="nav-link"><i class="fas fa-user"></i> Usuario</a></li>
+                </ul>
+            </div>
+        </div>       
+    </nav>
+    <div  style="height: 0.6vh; background-color: pink;" id="lineaDecorado"></div>
+    <main class='container p-4 rounded my-0 bg-dark text-white shadow-lg'>
+        <h2 class='text-center'>Bienvenido a UMSS-CLASS</h2>
+        <div class="container rounded">
+            <h4 class='text-center my-4'>Unirse a traves de:</h4>
+            <div class="my-3 col-sm-5 mx-auto">
+                <button type="button" class="btn btn-light btn-lg text-danger btn-block btn-outline-secondary" data-toggle="modal" data-target="#myModal"><i class="fab fa-google-plus-square"></i>Google  </button>
+            </div>
+            <div class="my-3 col-sm-5 mx-auto">
+                <button type="button" class="btn btn-light btn-lg text-primary btn-block btn-outline-secondary" data-toggle="modal" data-target="#myModal"><i class="fab fa-facebook-square"></i> Facebook</button>
+            </div>
+            <div class="my-3 col-sm-5 mx-auto">
+            <button type="button" class="btn btn-light btn-lg text-info btn-block btn-outline-secondary" data-toggle="modal" data-target="#myModal"><i class="fab fa-twitter-square"></i> Twitter</button>
+            </div>
+            <div class="my-3 col-sm-5 mx-auto">
+            <button type="button" class="btn btn-light btn-lg text-primary btn-block btn-outline-secondary" data-toggle="modal" data-target="#myModal"><i class="fab fa-instagram"></i> Instagram</button>
+            </div>
+            <h5><a href="" class='text-center'>Desear recordar su cuenta en esta maquina??</a></h5>
+        </div>
+    </main>
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Open modal
+    </button> -->
+      <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+        
+                <!-- Modal Header -->
+                <div class="modal-header bg-secondary text-white">
+                    <h4 class="modal-title">Confirmas Solicidud</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+        
+                <!-- Modal body -->
+                <div class="modal-body">
+                    ¿Usted esta seguro que dessea ingresar con su cuenta de google? ..............
+                    <div class="text-center">
+                        <button type="button" class="btn btn-primary" id="miBotonIngreso">Si</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function () {
+        let negro = true;
+        $("#elemTema").click(function (e) { 
+            e.preventDefault();
+            console.log("Se ha presionado el boton!!!");
+            cambiarTema();
+        });
+
+        $("#miBotonIngreso").click(function (e) { 
+            e.preventDefault();
+            console.log("Se presiono el boton para ingresar");
+            $("#miBotonIngreso").html("");
+            $("#miBotonIngreso").append('<span class="spinner-border spinner-border-sm"></span> Espere..');
+            setTimeout(function () {
+                window.location.href = "./home.html";
+            }, 2000);
+        });
+
+        function cambiarTema(){
+            if(negro){
+                negro = !negro;
+                $('nav').removeClass('bg-info');
+                $('nav').removeClass('navbar-light');
+
+                $('main div button ').addClass("btn-outline-secondary");
+                $('main div button ').removeClass("btn-outline-dark");
+
+                $('body').addClass("bg-secondary");
+                $('nav').addClass("bg-dark");
+                $('nav').addClass("navbar-dark");
+                $('main').addClass("bg-dark");
+                $('main').addClass("text-white");
+                $("#lineaDecorado").css("background-color","pink");
+
+            }else{
+                negro = !negro;
+                $("#lineaDecorado").css("background-color","blue");
+                $('body').removeClass("bg-secondary");
+                $('nav').removeClass("bg-dark");
+                $('nav').removeClass("navbar-dark");
+                $('main').removeClass("bg-dark");
+                $('main').removeClass("text-white");
+
+                $('main div button ').removeClass("btn-outline-secondary");
+                $('main div button ').addClass("btn-outline-dark");
+
+                //agregar
+                $('nav').addClass('bg-info');
+                $('nav').addClass('navbar-light');
+
+            }
+            
+
+        }
+    });
+</script>
+</html>
