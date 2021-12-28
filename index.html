@@ -49,7 +49,7 @@
                 <button type="button" class="btn btn-light btn-lg text-danger btn-block btn-outline-secondary" data-toggle="modal" data-target="#myModal"><i class="fab fa-google-plus-square"></i>Google  </button>
             </div>
             <div class="my-3 col-sm-5 mx-auto">
-                <button type="button" class="btn btn-light btn-lg text-primary btn-block btn-outline-secondary" data-toggle="modal" data-target="#myModal"><i class="fab fa-facebook-square"></i> Facebook</button>
+                <button type="button" class="btn btn-light btn-lg text-primary btn-block btn-outline-secondary" data-toggle="modal" data-target="#myModal" id="btnUsuario2"><i class="fab fa-facebook-square"></i> Facebook</button>
             </div>
             <div class="my-3 col-sm-5 mx-auto">
             <button type="button" class="btn btn-light btn-lg text-info btn-block btn-outline-secondary" data-toggle="modal" data-target="#myModal"><i class="fab fa-twitter-square"></i> Twitter</button>
@@ -86,61 +86,6 @@
         </div>
     </div>
 </body>
-<script>
-    $(document).ready(function () {
-        let negro = true;
-        $("#elemTema").click(function (e) { 
-            e.preventDefault();
-            console.log("Se ha presionado el boton!!!");
-            cambiarTema();
-        });
-
-        $("#miBotonIngreso").click(function (e) { 
-            e.preventDefault();
-            console.log("Se presiono el boton para ingresar");
-            $("#miBotonIngreso").html("");
-            $("#miBotonIngreso").append('<span class="spinner-border spinner-border-sm"></span> Espere..');
-            setTimeout(function () {
-                window.location.href = "./home.html";
-            }, 2000);
-        });
-
-        function cambiarTema(){
-            if(negro){
-                negro = !negro;
-                $('nav').removeClass('bg-info');
-                $('nav').removeClass('navbar-light');
-
-                $('main div button ').addClass("btn-outline-secondary");
-                $('main div button ').removeClass("btn-outline-dark");
-
-                $('body').addClass("bg-secondary");
-                $('nav').addClass("bg-dark");
-                $('nav').addClass("navbar-dark");
-                $('main').addClass("bg-dark");
-                $('main').addClass("text-white");
-                $("#lineaDecorado").css("background-color","pink");
-
-            }else{
-                negro = !negro;
-                $("#lineaDecorado").css("background-color","blue");
-                $('body').removeClass("bg-secondary");
-                $('nav').removeClass("bg-dark");
-                $('nav').removeClass("navbar-dark");
-                $('main').removeClass("bg-dark");
-                $('main').removeClass("text-white");
-
-                $('main div button ').removeClass("btn-outline-secondary");
-                $('main div button ').addClass("btn-outline-dark");
-
-                //agregar
-                $('nav').addClass('bg-info');
-                $('nav').addClass('navbar-light');
-
-            }
-            
-
-        }
-    });
+<script src="./src/index.js">
 </script>
 </html>
