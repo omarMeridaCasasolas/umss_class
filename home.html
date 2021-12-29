@@ -18,18 +18,18 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse " id="collapsibleNavbar">
+        <div class="collapse navbar-collapse d-flex justify-content-between" id="collapsibleNavbar">
             <div>
                 <ul class="navbar-nav">
-                    <li><a href="" class="nav-link">Logo de la empresa</a></li>
+                    <li><a href="#" class="nav-link"><i class="fas fa-graduation-cap"></i> UMSS-Class</a></li>
                 </ul>
             </div>
             <div>
                 <ul class="navbar-nav">
-                    <li><a href="" class="nav-link">Materia (Seleciona materia)</a></li>
-                    <li><a href="" class="nav-link">Avisos</a></li>
-                    <li><a href="" class="nav-link">Tareas</a></li>
-                    <li><a href="" class="nav-link">Plan de calificaciones</a></li>
+                    <li><a href="home.html" class="nav-link active font-weight-bolder">Materia (Seleciona materia)</a></li>
+                    <li><a href="avisos.html" class="nav-link">Avisos</a></li>
+                    <li><a href="tareas.html" class="nav-link">Tareas</a></li>
+                    <li><a href="plan.html" class="nav-link">Plan de calificaciones</a></li>
                 </ul>
             </div>
             <div>
@@ -70,6 +70,12 @@
                     <input class="form-control" id="myInput" type="text" placeholder="Search..">
                 </div>
             </div>
+            <!-- <div class="text-primary">
+                <h4>Materias como docente</h4>
+            </div>
+            <div class="text-primary">
+                <h4>Materias como estudiantes</h4>
+            </div> -->
             <div class="row" id='cuerpoMateria'>
             </div> 
         </div>
@@ -80,7 +86,7 @@
             <div class="modal-content">
         
                 <!-- Modal Header -->
-                <div class="modal-header bg-secondary text-white">
+                <div class="modal-header bg-info text-white">
                     <h4 class="modal-title">Crear materia</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
@@ -104,7 +110,7 @@
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary" id="miBotonCrear">Crear</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                         </div>
                     </form>
                     
@@ -118,7 +124,7 @@
             <div class="modal-content">
         
                 <!-- Modal Header -->
-                <div class="modal-header bg-secondary text-white">
+                <div class="modal-header bg-info text-white">
                     <h4 class="modal-title">Unirme a la materia</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
@@ -129,14 +135,13 @@
                     <form action="" id="formUnirmeMateria">
                         <div class="form-group">
                             <label for="">Unirme Materia</label>
-                            <input type="text" name="unirmeMateriaID" id="unirmeMateriaID" class='form-control'>
+                            <input type="text" name="unirmeMateriaID" id="unirmeMateriaID" class='form-control' placeholder="Por favor, escriba el ID de la materia">
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary" id="miBotonCrear">Crear</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                            <button type="submit" class="btn btn-primary" >Unirme</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                         </div>
                     </form>
-                    
                 </div>
             </div>
         </div>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/> -->
+    <title>Document</title>
+</head>
+<body class='bg-secondary'>
+    <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark d-flex justify-content-between p-3"> -->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="collapsibleNavbar">
+            <div>
+                <ul class="navbar-nav">
+                    <li><a href="" class="nav-link">Logo de la empresa</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul class="navbar-nav">
+                    <li><a href="home.html" class="nav-link">Materia (Seleciona materia)</a></li>
+                    <li><a href="avisos.html" class="nav-link">Avisos</a></li>
+                    <li><a href="tareas.html" class="nav-link">Tareas</a></li>
+                    <li><a href="plan.html" class="nav-link">Plan de calificaciones</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-link"><h5 id='elemTema'><i class="fas fa-adjust"></i></h5></li>
+                    <li><a href="" class="nav-link"><i class="fas fa-user"></i> Usuario</a></li>
+                </ul>
+            </div>
+        </div>       
+    </nav>
+    <div  style="height: 0.6vh; background-color: pink;" id="lineaDecorado"></div>
+    <main class='container p-4 rounded my-0 bg-dark text-white shadow-lg'>
+        <div class="text-center"><h2>Plan de calificacion</div>
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Preforma</strong> Puede ver el producto de la planificacion.
+            <a href="#" title="Modelo del plan" data-toggle="popover" data-trigger="focus"><i class="fas fa-info-circle"></i></a>
+        </div>
+        <div id="cuerpoPlan" class='p-3'>
+            
+        </div>
+        <h3><a href='#' id='addParte' data-toggle='modal' data-target='#myModal'>+ Agregar Parte</a></h3>
+        <div class='d-flex justify-content-between'>
+            <div>Calificacion Total</div>
+            <div>100 pts</div>
+        </div>
+        <div class="text-center">
+            <button type="button" class="btn btn-primary" id="btnActualizarPlan">Actualizar</button>
+            <button type="button" class="btn btn-danger" id="btnCancelarPlan"><i class="fas fa-ban"></i> Cancelar</button>
+        </div>
+    </main>
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+        
+                <!-- Modal Header -->
+                <div class="modal-header bg-secondary text-white">
+                    <h4 class="modal-title">Crear Parte</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+        
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group col-9">
+                            <label for="">Titulo</label>
+                            <input type="text" name="tituloParte" id="tituloParte" class='form-control'>
+                        </div>
+                        <div class="form-group col-3">
+                            <label for="">Pts</label>
+                            <input type="text" name="notaParte" id="notaParte" class='form-control'>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-primary" id="btnCrearParte">Crear</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal2">
+        <div class="modal-dialog">
+            <div class="modal-content">
+        
+                <!-- Modal Header -->
+                <div class="modal-header bg-secondary text-white text-center">
+                    <h4 class="modal-title">Crear Actividad</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+        
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div id="cabezeraUnirse"></div>
+                    <span id="idCuerpoActividad" class='d-none'></span>
+                    <div class="row">
+                        <div class="form-group col-9">
+                            <label for="">Titulo de la actividad</label>
+                            <input type="text" name="tituloActividad" id="tituloActividad" class='form-control' placeholder="Tareas, Evaluaciones, practicas , etc..">
+                        </div>
+                        <div class="form-group col-3">
+                            <label for="">Pts</label>
+                            <input type="text" name="notaActividad" id="notaActividad" class='form-control' placeholder="sobre la parte">
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-primary" id="btnCrearActividad">Crear</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="./src/plan.js">
+</script>
+</html>

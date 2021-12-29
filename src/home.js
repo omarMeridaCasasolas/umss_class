@@ -1,6 +1,28 @@
 var estudiante, listaMateriaDisponibles,negro;
 var numMax = localStorage.getItem('numMax');
 $(document).ready(function () {
+    // $('[data-toggle="popover"]').popover({
+    //     html: true,
+    //     trigger: 'hover',
+    //     content: function () {
+    //       return '<img src="./src/PrimerSMS.jpg"/>';
+    //     }
+    // });
+    // $('[data-toggle="popover"]').popover();
+
+
+    $( window ).bind("resize", function(){
+        let tam = $( window ).width();
+        // console.log(tam);
+        if(tam <= 890){
+            $("#collapsibleNavbar").removeClass("d-flex");
+            $("#collapsibleNavbar").removeClass("justify-content-between");
+        }else{
+            $("#collapsibleNavbar").addClass("d-flex");
+            $("#collapsibleNavbar").addClass("justify-content-between");
+        }
+    });
+    
     recargarUsuario();
     obtenerColor();
     $("#elemTema").click(function (e) { 
@@ -25,9 +47,9 @@ $(document).ready(function () {
         $('#myModal').modal('hide');
         let fecha = new Date();
         let fechaActual = fecha.getFullYear()+"-"+(fecha.getMonth() + 1 )+"-"+fecha.getDate();
-        listaMateriaDisponibles.push({idMateria: numMax++, nombreMateria:$("#nombreMateria").val(),docente:estudiante.nombreEstudiante,fecha: fechaActual, inscritos: []});
+        listaMateriaDisponibles.push({idMateria: numMax++,idDocente: estudiante.idEstudiante , nombreMateria:$("#nombreMateria").val(),docente:estudiante.nombreEstudiante,fecha: fechaActual, inscritos: [estudiante.idEstudiante]});
         localStorage.setItem('arregloMateria',JSON.stringify(listaMateriaDisponibles));
-        console.log(listaMateriaDisponibles);
+        // console.log(listaMateriaDisponibles);
         cargarListaMaterias(estudiante.idEstudiante);
         // $("#cuerpoMateria").append("<div class='col-xl-3 col-lg-4 col-md-6 bg-dark text-dark text-center p-1'>"+
         //     "<div class='col-12 bg-white py-1 rounded' style='min-height: 175px;'>"+
@@ -47,8 +69,9 @@ $(document).ready(function () {
         console.log(resp);
         if(resp){
             cargarListaMaterias(estudiante.idEstudiante);
+            $("#formUnirmeMateria")[0].reset();
             $('#myModal2').modal('hide');
-            Swal.fire('Exito!!',"Se agregado nuevo curso",'success');
+            Swal.fire('Felicidades!!',"Se incorporado a una nueva materia",'success');
         }else{
             $("#cabezeraUnirse").append('<div class="alert alert-danger alert-dismissible">'+
             '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
@@ -130,7 +153,7 @@ function cargarListaMaterias(idEstudiante){
             if(element == idEstudiante){
                 $("#cuerpoMateria").append("<div class='col-xl-3 col-lg-4 col-md-6 bg-dark text-dark text-center p-1'>"+
                     "<div class='col-12 bg-white py-1 rounded' style='min-height: 210px;'>"+
-                        "<p class='m-1'>Materia: "+arreglo.nombreMateria+"</p>"
+                        "<p class='m-1'>Materia: "+arreglo.nombreMateria+" <a href='#' class='text-info' ><i class='fas fa-tools'></i></a> <a href='#' class='text-danger'><i class='far fa-trash-alt'></i></a></p>"
                         +"<p class='m-1'>Docente: "+arreglo.docente+"</p>"
                         +"<strong class='m-1'>"+arreglo.fecha+"</strong><hr>"
                         // +"<button class='btn btn-primary'>Ingresar</button>"

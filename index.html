@@ -14,7 +14,7 @@
 </head>
 <body class='bg-secondary'>
     <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark d-flex justify-content-between p-3"> -->
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,25 +39,27 @@
                 </ul>
             </div>
         </div>       
-    </nav>
-    <div  style="height: 0.6vh; background-color: pink;" id="lineaDecorado"></div>
-    <main class='container p-4 rounded my-0 bg-dark text-white shadow-lg'>
-        <h2 class='text-center'>Bienvenido a UMSS-CLASS</h2>
+    </nav> -->
+   
+    <main class='container p-4 rounded my-0 bg-dark text-white shadow-lg mt-5'>
+        <!-- <div  style="height: 0.8vh; background-color: pink;" id="lineaDecorado"></div> -->
+        <h2 class='text-center'>Bienvenido a UMSS-CLASS <a href="#"><i class="fas fa-adjust" id='elemTema'></i></a></h2>
+        <!-- <h6 id='elemTema'><i class="fas fa-adjust" id='elemTema'></i></h6> -->
         <div class="container rounded">
             <h4 class='text-center my-4'>Unirse a traves de:</h4>
             <div class="my-3 col-sm-5 mx-auto">
-                <button type="button" class="btn btn-light btn-lg text-danger btn-block btn-outline-secondary" data-toggle="modal" data-target="#myModal"><i class="fab fa-google-plus-square"></i>Google  </button>
+                <button type="button" class="btn btn-light btn-lg text-danger btn-block btn-outline-secondary" data-toggle="modal" data-target="#myModal" id="btnUsuario_1"><i class="fab fa-google-plus-square"></i>Google  </button>
             </div>
             <div class="my-3 col-sm-5 mx-auto">
-                <button type="button" class="btn btn-light btn-lg text-primary btn-block btn-outline-secondary" data-toggle="modal" data-target="#myModal" id="btnUsuario2"><i class="fab fa-facebook-square"></i> Facebook</button>
+                <button type="button" class="btn btn-light btn-lg text-primary btn-block btn-outline-secondary" data-toggle="modal" data-target="#myModal" id="btnUsuario_2"><i class="fab fa-facebook-square"></i> Facebook</button>
             </div>
             <div class="my-3 col-sm-5 mx-auto">
-            <button type="button" class="btn btn-light btn-lg text-info btn-block btn-outline-secondary" data-toggle="modal" data-target="#myModal"><i class="fab fa-twitter-square"></i> Twitter</button>
+            <button type="button" class="btn btn-light btn-lg text-info btn-block btn-outline-secondary" data-toggle="modal" data-target="#myModal" id="btnUsuario_3"><i class="fab fa-twitter-square"></i> Twitter</button>
             </div>
             <div class="my-3 col-sm-5 mx-auto">
-            <button type="button" class="btn btn-light btn-lg text-primary btn-block btn-outline-secondary" data-toggle="modal" data-target="#myModal"><i class="fab fa-instagram"></i> Instagram</button>
+            <button type="button" class="btn btn-light btn-lg text-primary btn-block btn-outline-secondary" data-toggle="modal" data-target="#myModal" id="btnUsuario_4"><i class="fab fa-instagram"></i> Instagram</button>
             </div>
-            <h5><a href="" class='text-center'>Desear recordar su cuenta en esta maquina??</a></h5>
+            <h6><a href="" class='text-center'>Desear recordar su cuenta en esta maquina??</a></h6>
         </div>
     </main>
     <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
@@ -69,15 +71,15 @@
             <div class="modal-content">
         
                 <!-- Modal Header -->
-                <div class="modal-header bg-secondary text-white">
-                    <h4 class="modal-title">Confirmas Solicidud</h4>
+                <div class="modal-header bg-info text-white">
+                    <h4 class="modal-title">Peticion de confirmacion</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
         
                 <!-- Modal body -->
                 <div class="modal-body">
-                    ¿Usted esta seguro que dessea ingresar con su cuenta de google? ..............
-                    <div class="text-center">
+                    ¿Usted esta seguro que dessea ingresar con la cuenta asociada?
+                    <div class="text-center mt-3">
                         <button type="button" class="btn btn-primary" id="miBotonIngreso">Si</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
                     </div>
@@ -86,6 +88,8 @@
         </div>
     </div>
 </body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="./src/index.js">
 </script>
 </html>

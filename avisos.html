@@ -18,24 +18,28 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse " id="collapsibleNavbar">
+        <div class="collapse navbar-collapse d-flex justify-content-between" id="collapsibleNavbar">
+            <!-- <div class="d-flex justify-content-between">
+                
+            </div> -->
             <div>
                 <ul class="navbar-nav">
-                    <li><a href="" class="nav-link">Logo de la empresa</a></li>
+                    <li><a href="#" class="nav-link"><i class="fas fa-graduation-cap"></i> UMSS-Class</a></li>
                 </ul>
             </div>
             <div>
                 <ul class="navbar-nav">
-                    <li><a href="" class="nav-link">Materia (Seleciona materia)</a></li>
-                    <li><a href="" class="nav-link">Avisos</a></li>
-                    <li><a href="" class="nav-link">Tareas</a></li>
-                    <li><a href="" class="nav-link">Plan de calificaciones</a></li>
+                    <li><a href="home.html" class="nav-link">Materia (Seleciona materia)</a></li>
+                    <li><a href="avisos.html" class="nav-link active font-weight-bolder">Avisos</a></li>
+                    <li><a href="tareas.html" class="nav-link">Tareas</a></li>
+                    <li><a href="plan.html" class="nav-link">Plan de calificaciones</a></li>
                 </ul>
             </div>
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-link"><h5 id='elemTema'><i class="fas fa-adjust"></i></h5></li>
                     <li><a href="" class="nav-link"><i class="fas fa-user"></i> Usuario</a></li>
+                    <li><button class='btn btn-danger' id='btnSalir'><i class="fas fa-sign-out-alt"></i></button></li>
                 </ul>
             </div>
         </div>       

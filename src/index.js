@@ -7,11 +7,35 @@ $(document).ready(function () {
         cambiarTema();
     });
 
-    $("#btnUsuario2").click(function (e) { 
+    // PARA EL TIPO DE USUARIO 
+    $("#btnUsuario_1").click(function (e) { 
         e.preventDefault();
+        console.log(this.id);
+        let usuario = {idEstudiante:1, nombreEstudiante:'Oscar Copa Wilde'};
+        localStorage.setItem('usuarioActual',JSON.stringify(usuario));
+        // let usuario = {idEstudiante:2, nombreEstudiante:'Carlos Vidal Calle'};
+        // localStorage.setItem('usuarioActual',JSON.stringify(usuario));
+    });
+
+    $("#btnUsuario_2").click(function (e) { 
+        e.preventDefault();
+        console.log(this.id);
         let usuario = {idEstudiante:2, nombreEstudiante:'Carlos Vidal Calle'};
         localStorage.setItem('usuarioActual',JSON.stringify(usuario));
-        // cambiarTema();
+    });
+
+    $("#btnUsuario_3").click(function (e) { 
+        e.preventDefault();
+        console.log(this.id);
+        let usuario = null;
+        localStorage.setItem('usuarioActual',JSON.stringify(usuario));
+    });
+
+    $("#btnUsuario_4").click(function (e) { 
+        e.preventDefault();
+        console.log(this.id);
+        let usuario = null;
+        localStorage.setItem('usuarioActual',JSON.stringify(usuario));
     });
     
 
@@ -21,9 +45,17 @@ $(document).ready(function () {
         $("#miBotonIngreso").html("");
         $("#miBotonIngreso").append('<span class="spinner-border spinner-border-sm"></span> Espere..');
         cargarMaterias();
-        cargarUsuario();
+        // cargarUsuario();
+        let usuario = localStorage.getItem('usuarioActual');
+        console.log(usuario);
         setTimeout(function () {
-            window.location.href = "./home.html";
+            if(usuario == 'null'){
+                $('#myModal').modal('hide');
+                $("#miBotonIngreso").html("Si");
+                Swal.fire('Problema',"Se ha generado un problema de autentificacion por favol selecione otra plataforma",'error');
+            }else{
+                window.location.href = "./home.html";
+            }
             // console.log(JSON.parse(localStorage.getItem('usuarioActual')));
         }, 2000);
     });
@@ -93,8 +125,8 @@ function cargarMaterias(){
     anuncios.push(anuncio6);
     anuncios.push(anuncio7);
     anuncios.push(anuncio8);    
-    let materia1 = {idMateria: 1, idDocente: 1,  nombreMateria:'Calculo I',docente:'Juan Miguel lopez',fecha: '2021-12-26', inscritos: [1], anuncios};
-    let materia2 = {idMateria: 2, idDocente: 2,  nombreMateria:'Algrebra I',docente:'Carlos Montaño Mendez',fecha: '2021-12-25', inscritos: [1], anuncios};
+    let materia1 = {idMateria: 1, idDocente: 11,  nombreMateria:'Calculo I',docente:'Juan Miguel lopez',fecha: '2021-12-26', inscritos: [1], anuncios};
+    let materia2 = {idMateria: 2, idDocente: 12,  nombreMateria:'Algrebra I',docente:'Carlos Montaño Mendez',fecha: '2021-12-25', inscritos: [1], anuncios};
     let materia3 = {idMateria: 3, idDocente: 3,  nombreMateria:'Ingles I',docente:'Liliana Antezana Perez',fecha: '2021-12-21', inscritos: [1], anuncios};
     let materia4 = {idMateria: 4, idDocente: 4,  nombreMateria:'Introduccion a la programacion',docente:'Luis Vargas Rodriguez',fecha: '2021-12-22', inscritos: [1], anuncios};
     let materia5 = {idMateria: 5, idDocente: 5,  nombreMateria:'Fisica',docente:'Victor Castro Sucre',fecha: '2021-12-21', inscritos: [1], anuncios};

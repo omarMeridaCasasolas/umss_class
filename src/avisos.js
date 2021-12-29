@@ -2,6 +2,18 @@ var estudiante, listaMateriaDisponibles, elementoAnuncio, negro;
 var numMax = localStorage.getItem('numMax');
 var myAnuncios = new Array();
 $(document).ready(function () {
+    $( window ).bind("resize", function(){
+        let tam = $( window ).width();
+        console.log(tam);
+        if(tam <= 890){
+            $("#collapsibleNavbar").removeClass("d-flex");
+            $("#collapsibleNavbar").removeClass("justify-content-between");
+        }else{
+            $("#collapsibleNavbar").addClass("d-flex");
+            $("#collapsibleNavbar").addClass("justify-content-between");
+        }
+    });
+    
     listarAnuncios(1);
     $("#formCrearAviso").submit(function (e) { 
         e.preventDefault();
