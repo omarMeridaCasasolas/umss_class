@@ -223,6 +223,77 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="myModal3">
+        <div class="modal-dialog">
+            <div class="modal-content">
+        
+                <!-- Modal Header -->
+                <div class="modal-header bg-secondary text-white">
+                    <h4 class="modal-title">Calificacion</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+        
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form action="" id="formCrearAviso">
+                        <div class="form-group">
+                            <label for="">Nota:</label>
+                            <input type="text" name="tituloAviso" id="tituloAviso" class='form-control' readonly value="66">
+                        </div>
+                        <h6>Comentario nota:</h6>
+                        <textarea name="descripcionAviso" id="descripcionAviso" cols="30" rows="4" class='form-control' readonly placeholder="No se tiene ninguna observacion al trabajo realizado"></textarea>
+                        
+                        <div class="text-center">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Salir</button>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModalEntregar">
+        <div class="modal-dialog">
+            <div class="modal-content">
+        
+                <!-- Modal Header -->
+                <div class="modal-header bg-secondary text-white">
+                    <h4 class="modal-title">Entregar Tarea</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+        
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form action="" id="formCrearAviso">
+                        <div class="form-group">
+                            <label for="">Nombre Completo:</label>
+                            <input type="text" name="tituloAviso" id="tituloAviso" class='form-control' required>
+                        </div>
+                        <h6>Descripcion tarea:</h6>
+                        <textarea name="descripcionAviso" id="descripcionAviso" cols="30" rows="4" class='form-control' required></textarea>
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <label for="">Archivo</label>
+                                <input type="file" name="archivoAviso" id="archivoAviso" class='form-control'>
+                            </div>
+                            <div class="form-group col-12">
+                                <label for="">Enlace documento</label>
+                                <input type="text" name="enlaceAviso" id="enlaceAviso" class='form-control'>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary" id="miBotonCrear">Enviar</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>

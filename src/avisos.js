@@ -163,7 +163,7 @@ function obtenerMateriaLocalStrage(){
         $("#nomMateriaAct").html("("+materiaActual.nombreMateria+")");
         let idDocente = buscarMateria(materiaActual.idMateria);
         if(idDocente != usuario.idEstudiante){
-            $("#modalCrearAviso").addClass('d-none');
+            // $("#modalCrearAviso").addClass('d-none');
             esDocente = false;
         }else{
             $("#modalCrearAviso").removeClass('d-none');

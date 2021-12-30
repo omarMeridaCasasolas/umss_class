@@ -72,11 +72,13 @@ $(document).ready(function () {
 
 function iniciarVariables(){
     materiaActual = JSON.parse(localStorage.getItem('materiaActual'));
-    console.log(materiaActual);
+    // console.log(materiaActual);
     arrayTareas = materiaActual.arrayTareas;
-    console.log(arrayTareas);
+    // console.log(arrayTareas);
     usuario = JSON.parse(localStorage.getItem('usuarioActual'));
     listarTareas(arrayTareas);
+    verificarPermisoDocente();
+    // console.log(usuario);
 }
 
 
@@ -131,15 +133,19 @@ function ordenarNombreDesc(){
 }
 
 function verificarPermisoDocente(){
-    let params = new URLSearchParams(location.search);
-    idMateria = params.get('id');
-    let idDocente = buscarMateria(idMateria);
+    // let params = new URLSearchParams(location.search);
+    // idMateria = params.get('id');
+    // let idDocente = buscarMateria(idMateria);
+    let idDocente = materiaActual.idDocente;
+    console.log(idDocente +"--"+usuario.idEstudiante);
     if(idDocente != usuario.idEstudiante){
         $("#modalCrearAviso").addClass('d-none');
-        $(".editarAnunciosDocentes").addClass('d-none');
+        // $(".editarAnunciosDocentes").addClass('d-none');
+        dibujarJhonny();
     }else{
         $("#modalCrearAviso").removeClass('d-none');
         $(".editarAnunciosDocentes").removeClass('d-none');
+
     }
 }
 
@@ -174,3 +180,55 @@ function agregarTareaEstudiante(obj, inscritos){
     }
 }
 
+function dibujarJhonny(){
+    console.log("Paso por aqui");
+    $("#cuerpoTareas").empty();
+    $("#cuerpoTareas").append('<div class="card p-2 bg-white text-dark border rounded my-2">'+
+    '<div class="card-header">'+
+        '2021-12-30, 11:47:46 '+
+    '</div>'+
+        '<div class="card-body">'+
+        '<h5 class="card-title">Investigacion de Lenguajes de Programacion</h5>'+
+        '<p class="card-text">Se debe realizar una investigacion sobre todos los lenguajes de Programacion Orientados a Objetos. </p>'+
+            '<button class="btn btn-primary" data-toggle="modal" data-target="#myModalEntregar" id="modalCrearMateria">'+
+                'Entregar'+
+            '</button>'+
+            '<button class="btn btn-success" data-toggle="modal" data-target="#myModal3" id="modalCrearMateria">'+
+                'Ver Calificacion'+
+            '</button>'+
+
+        '</div>'+
+    '</div>'+
+    '<div class="card p-2 bg-white text-dark border rounded my-2">'+
+        '<div class="card-header">'+
+            '2021-12-29, 10:37:36'+
+        '</div>'+
+        '<div class="card-body">'+
+        '<h5 class="card-title">Practica 1 </h5>'+
+        '<p class="card-text">Realizar los ejercios de la pagina 10 del texto de materia</p>'+
+        
+            '<button class="btn btn-primary" data-toggle="modal" data-target="#myModalEntregar" id="modalCrearMateria">'+
+                'Entregar'+
+            '</button>'+
+            '<button class="btn btn-success" data-toggle="modal" data-target="#myModal3" id="modalCrearMateria">'+
+                'Ver Calificacion'+
+            '</button>'+
+        '</div>'+
+    '</div>'+
+    '<div class="card p-2 bg-white text-dark border rounded my-2">'+
+        '<div class="card-header">'+
+            '2021-12-28, 09:27:26 '+
+        '</div>'+
+        '<div class="card-body">'+
+        '<h5 class="card-title">Practica 2</h5>'+
+        '<p class="card-text">Resolver los problemas que estan en la seccion 1.3 del texto de la materia. </p>'+
+        
+            '<button class="btn btn-primary" data-toggle="modal" data-target="#myModalEntregar" id="modalCrearMateria">'+
+                'Entregar'+
+            '</button>'+
+            '<button class="btn btn-success" data-toggle="modal" data-target="#myModal3" id="modalCrearMateria">'+
+                'Ver Calificacion'+
+            '</button>'+
+        '</div>'+
+    '</div>');
+}
