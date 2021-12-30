@@ -27,9 +27,9 @@ $(document).ready(function () {
             let element = listaMateriaDisponibles[index];
             if(element.idMateria == idMateriaActual){
                 console.log(element);
-                localStorage.setItem("materiaActual",JSON.stringify(element));
+                localStorage.setItem('materiaActual',JSON.stringify(element));
                 // localStorage.setItem('arregloMateria',JSON.stringify(arregloMaterias));
-                window.location.href = "./avisos.html?id="+idMateriaActual;
+                window.location.href = "./avisos.html";
                 break;
             }
         }

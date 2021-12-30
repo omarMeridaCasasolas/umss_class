@@ -1,4 +1,4 @@
-var usuario, listaMateriaDisponibles, elementoAnuncio, negro, idMateria, materiaActual;
+var usuario, listaMateriaDisponibles, elementoAnuncio, negro, idMateria, materiaActual , esDocente;
 var myAnuncios = new Array();
 $(document).ready(function () {
     //BUSCADOR
@@ -10,7 +10,7 @@ $(document).ready(function () {
     });
 
     //Inicar principal
-    iniciarUsuario();
+    iniciarVariables();
     //CONTRLAR LA VENTANA
     $( window ).bind("resize", function(){
         let tam = $( window ).width();
@@ -41,7 +41,6 @@ $(document).ready(function () {
                 }
             }
         }
-        verificarPermisoDocente();
     });
 
     $("#formCrearAviso").submit(function (e) { 
@@ -72,34 +71,41 @@ $(document).ready(function () {
 
 });
 
-function iniciarUsuario(){
+function iniciarVariables(){
     listaMateriaDisponibles = JSON.parse(localStorage.getItem('arregloMateria'));
     usuario = JSON.parse(localStorage.getItem('usuarioActual'));
+    obtenerMateriaLocalStrage();
     listarAnuncios(usuario.idEstudiante);
-    verificarPermisoDocente();
 }
 
 
 function listarAnuncios(idMat){
-    // listaMateriaDisponibles = JSON.parse(localStorage.getItem('arregloMateria'));
     for(let i = 0 ; i<listaMateriaDisponibles.length ; i++){
         let elemento = listaMateriaDisponibles[i];
         if(elemento.idMateria = idMat){
             elementoAnuncio = elemento;
             myAnuncios =  elemento.anuncios;
             $("#cuerpoAnuncio").empty();
-            // let arrayInvertido = elemento.anuncios.reverse();
-            // arrayInvertido.forEach(anuncio => {
-            elemento.anuncios.forEach(anuncio => {
-                $("#cuerpoAnuncio").append("<div class='p-2 bg-white text-dark border rounded my-2 subCuerpoAnuncio'>"+
-                    // "<h5>"+anuncio.titulo+"</h5>"+
-                    "<div class='d-flex justify-content-between'><div><h5>"+anuncio.titulo+"</h5></div> <div class='editarAnunciosDocentes'><a href='#' class='text-info' data-toggle='modal' data-target='#myModalEditar' ><i class='fas fa-tools'></i></a> <a href='#' class='text-danger' data-toggle='modal' data-target='#myModalEliminar'><i class='far fa-trash-alt'></i></a></div></div>"+
-                    "<p>"+anuncio.descripcion+"</p>"+
-                    "<div class='d-flex justify-content-between'><div><strong>"+anuncio.fechaAnuncio+"</strong></div><div><a href='"+anuncio.recurso+"'><i class='fas fa-link'></i> Enlace</a></div></div>"+
-                    // <strong>"+anuncio.fechaAnuncio+"</strong>
-                    // "<a href='"+anuncio.recurso+"'><i class='fas fa-link'></i> Enlace</a>"+
-                "</div>");
-            });
+            if(esDocente){
+                elemento.anuncios.forEach(anuncio => {
+                    $("#cuerpoAnuncio").append("<div class='p-2 bg-white text-dark border rounded my-2 subCuerpoAnuncio'>"+
+                        // "<h5>"+anuncio.titulo+"</h5>"+
+                        "<div class='d-flex justify-content-between'><div><h5>"+anuncio.titulo+"</h5></div> <div class='editarAnunciosDocentes'><a href='#' class='text-info' data-toggle='modal' data-target='#myModalEditar'><i class='fas fa-tools'></i></a> <a href='#' class='text-danger' data-toggle='modal' data-target='#myModalEliminar'><i class='far fa-trash-alt'></i></a></div></div>"+
+                        "<p>"+anuncio.descripcion+"</p>"+
+                        "<div class='d-flex justify-content-between'><div><strong>"+anuncio.fechaAnuncio+"</strong></div><div><a href='"+anuncio.recurso+"'><i class='fas fa-link'></i> Enlace</a></div></div>"+
+                    "</div>");
+                });
+            }else{
+                elemento.anuncios.forEach(anuncio => {
+                    $("#cuerpoAnuncio").append("<div class='p-2 bg-white text-dark border rounded my-2 subCuerpoAnuncio'>"+
+                        "<h5>"+anuncio.titulo+"</h5>"+
+                        // "<div class='d-flex justify-content-between'><div><h5>"+anuncio.titulo+"</h5></div> <div class='editarAnunciosDocentes'><a href='#' class='text-info' data-toggle='modal' data-target='#myModalEditar'><i class='fas fa-tools'></i></a> <a href='#' class='text-danger' data-toggle='modal' data-target='#myModalEliminar'><i class='far fa-trash-alt'></i></a></div></div>"+
+                        "<p>"+anuncio.descripcion+"</p>"+
+                        "<div class='d-flex justify-content-between'><div><strong>"+anuncio.fechaAnuncio+"</strong></div><div><a href='"+anuncio.recurso+"'><i class='fas fa-link'></i> Enlace</a></div></div>"+
+                    "</div>");
+                });
+            }
+            
             break;
         }
     }
@@ -143,29 +149,25 @@ function ordenarNombreDesc(){
     listarAnuncios(idMateria);
 }
 
-function verificarPermisoDocente(){
-    let params = new URLSearchParams(location.search);
-    idMateria = params.get('id');
-    let idDocente = buscarMateria(idMateria);
-    if(idDocente != usuario.idEstudiante){
-        $("#modalCrearAviso").addClass('d-none');
-        $(".editarAnunciosDocentes").addClass('d-none');
-    }else{
-        $("#modalCrearAviso").removeClass('d-none');
-        $(".editarAnunciosDocentes").removeClass('d-none');
-    }
-    obtenerMateriaLocalStrage();
-}
 
-// OBTENER MATERIA ACTuAL
+// OBTENER MATERIA ACTUAL
 function obtenerMateriaLocalStrage(){
     materiaActual = JSON.parse(localStorage.getItem('materiaActual'));
     console.log(materiaActual);
-    $("#nomMateriaAct").html("("+materiaActual.nombreMateria+")");
+    if(materiaActual == null){
+        console.log("Se completa");
+        $("main").empty();
+        $("main").append("<h1 class='text-center text-danger p-5'>No se ha secionado ninguna materia!!!<h1>");
+        $("main").append("<h1 class='text-center text-primary p-5'><a href='home.html'><u>>>Selecionar materia<<</u></a><h1>");
+    }else{
+        $("#nomMateriaAct").html("("+materiaActual.nombreMateria+")");
+        let idDocente = buscarMateria(materiaActual.idMateria);
+        if(idDocente != usuario.idEstudiante){
+            $("#modalCrearAviso").addClass('d-none');
+            esDocente = false;
+        }else{
+            $("#modalCrearAviso").removeClass('d-none');
+            esDocente = false;
+        }
+    }
 }
-
-// RECARGAR DATOS DE USUARIO 
-// function recargarUsuario(){
-//     estudiante = JSON.parse(localStorage.getItem('usuarioActual'));
-//     console.log(estudiante);
-// }

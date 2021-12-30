@@ -72,11 +72,11 @@ $(document).ready(function () {
 
 function iniciarVariables(){
     materiaActual = JSON.parse(localStorage.getItem('materiaActual'));
+    console.log(materiaActual);
     arrayTareas = materiaActual.arrayTareas;
     console.log(arrayTareas);
     usuario = JSON.parse(localStorage.getItem('usuarioActual'));
     listarTareas(arrayTareas);
-    // verificarPermisoDocente();
 }
 
 
@@ -87,7 +87,7 @@ function listarTareas(arrayTareas){
             "<div class='d-flex justify-content-between'><div><h5>"+element.tituloTarea+"</h5></div> <div class='editarAnunciosDocentes'><a href='#' class='text-info' data-toggle='modal' data-target='#myModalEditar' ><i class='fas fa-tools'></i></a> <a href='#' class='text-danger' data-toggle='modal' data-target='#myModalEliminar'><i class='far fa-trash-alt'></i></a></div></div>"+
             "<p>"+element.descrpcionTarea+"</p>"+
             "<div class='d-flex justify-content-between'><div><strong>"+element.fechaTarea+"</strong></div><div><a href='"+element.enlaceTarea+"'><i class='fas fa-link'></i> Enlace</a></div></div>"+
-            "<div class='text-center'><button type='button' class='btn btn-primary'>Calificar</button>  <button type='button' class='btn btn-warning'>Detalles</button></div>"+
+            "<div class='text-center'><button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modalCalicarTarea'>Calificar</button>  <button type='button' class='btn btn-warning'  data-toggle='modal' data-target='#modalVerTarea'>Detalles</button></div>"+
         "</div>");
     });
 }
@@ -145,7 +145,7 @@ function verificarPermisoDocente(){
 
 function validarMateria(){
     materiaActual = JSON.parse(localStorage.getItem("materiaAtual"));
-    // console.log(materiaActual);
+    console.log(materiaActual);
     if(materiaActual == null){
         console.log("Se completa");
         $("main").empty();
@@ -155,10 +155,10 @@ function validarMateria(){
 }
 
 // OBTENER MATERIA ACTIAL
-function obtenerMateriaLocalStrage(){
-    console.log(materiaActual);
-    $("#nomMateriaAct").html("("+materiaActual.nombreMateria+")");
-}
+// function obtenerMateriaLocalStrage(){
+//     console.log(materiaActual);
+//     $("#nomMateriaAct").html("("+materiaActual.nombreMateria+")");
+// }
 
 function agregarTareaEstudiante(obj, inscritos){
     let listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios'));

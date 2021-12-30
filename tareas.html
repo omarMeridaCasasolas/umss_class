@@ -135,31 +135,90 @@
             </div>
         </div>
     </div>
-    <!-- The Modal -->
-    <div class="modal fade" id="myModal2">
-        <div class="modal-dialog">
+
+    <!-- The Modal  calificar Tarea-->
+    <div class="modal fade" id="modalCalicarTarea">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
         
                 <!-- Modal Header -->
-                <div class="modal-header bg-secondary text-white">
-                    <h4 class="modal-title">Unirme a la materia</h4>
+                <div class="modal-header bg-info text-white">
+                    <h4 class="modal-title">Calificar tarea</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
         
                 <!-- Modal body -->
-                <div class="modal-body">
+                <div class="modal-body ">
                     <div id="cabezeraUnirse"></div>
-                    <form action="" id="formUnirmeMateria">
-                        <div class="form-group">
-                            <label for="">Unirme Materia</label>
-                            <input type="text" name="unirmeMateriaID" id="unirmeMateriaID" class='form-control'>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary" id="miBotonCrear">Crear</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-                        </div>
-                    </form>
-                    
+                    <div class="row p-1 bg-dark text-white text-center">
+                        <div class="col-5">Estudiante</div>
+                        <div class="col-2">Recurso</div>
+                        <div class="col-3">Entrega</div>
+                        <div class="col-2">Nota</div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-5 border">Oscar Nuñes Mendes</div>
+                        <div class="col-2 border"><a href="#">Link</a></div>
+                        <div class="col-3 border">2021-12-15 10:15:10</div>
+                        <div class="col-2 border"><input type="text" name="" id="" class='form-control'></div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-5 border">Isabel Cortez Castro</div>
+                        <div class="col-2 border"><a href="#">Link</a></div>
+                        <div class="col-3 border">2021-12-16 21:15:15</div>
+                        <div class="col-2 border"><input type="text" name="" id="" class='form-control'></div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-5 border">Belen Copa Antezana</div>
+                        <div class="col-2 border"><a href="#">Link</a></div>
+                        <div class="col-3 border">2021-12-27 09:14:09</div>
+                        <div class="col-2 border"><input type="text" name="" id="" class='form-control'></div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-5 border">Davis Carlos Rodriguez</div>
+                        <div class="col-2 border"><a href="#">Link</a></div>
+                        <div class="col-3 border">2021-12-30 10:27:59</div>
+                        <div class="col-2 border"><input type="text" name="" id="" class='form-control'></div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-primary" id="miBotonCrear">Calificar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal VER Tarea-->
+    <div class="modal fade" id="modalVerTarea">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+        
+                <!-- Modal Header -->
+                <div class="modal-header bg-info text-white">
+                    <h4 class="modal-title">Calificar tarea</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+        
+                <!-- Modal body -->
+                <div class="modal-body ">
+                    <div class="d-flex justify-content-between">
+                        <div><strong>Nombre: </strong>Tarea Prueba</div>
+                        <div><strong>Publicacion: </strong>2021-12-03 10:20:15</div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div><strong>Informacion: </strong><a href="#" target="_blank" rel="noopener noreferrer">Tarea Prueba</a></div>
+                        <div><strong>Fecha limite: </strong>2021-12-15 21:00:00</div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div><strong>Estado: </strong><span class="badge badge-success">Vigente</span></div>
+                        <div><strong>Puntaje: </strong>20 Pts</div>
+                    </div>
+                    <p>En la actualidad existen diversas tecnologías de monitoreo y localización de objetos, algunos con un grado de precisión mejor que otros, pero el problema no es el localizar, sino el poco uso que se le da a estos dispositivos y tecnologías, los cuales pueden brindar mayor seguridad y tranquilidad a aquellas personas o familias que los usan, independientemente de la marca. En cuanto al robo de objetos, secuestro o desaparición de personas los localizadores van siendo una tecnología bastante útil para dar con la ubicación del objeto perdido o persona que porte uno de estos dispositivos denominados GPS. Por este motivo se requiere de una aplicación móvil que facilite el uso de estas tecnologías, con el objetivo de precautelar la seguridad de los menores, mediante el estudio y la aplicación de tecnologías como el GSM y dispositivos GPS, y la implementación de una aplicación móvil diseñada exclusivamente para ese fin. El objetivo, dar mayor seguridad, y mejorar la calidad de vida de las familias</p>
+                    <hr>
+                    <div class="text-center mt-3">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+                    </div>
                 </div>
             </div>
         </div>

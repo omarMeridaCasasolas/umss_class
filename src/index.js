@@ -52,8 +52,9 @@ $(document).ready(function () {
             if(usuario == 'null'){
                 $('#myModal').modal('hide');
                 $("#miBotonIngreso").html("Si");
-                Swal.fire('Problema',"Se ha generado un problema de autentificacion por favol selecione otra plataforma",'error');
+                Swal.fire('Problema',"Se ha generado un problema de autentificacion por favor selecione otra plataforma",'error');
             }else{
+                localStorage.setItem('materiaActual',null);
                 window.location.href = "./home.html";
             }
             // console.log(JSON.parse(localStorage.getItem('usuarioActual')));
@@ -127,23 +128,12 @@ function cargarMaterias(){
     anuncios.push(anuncio1);
     // CREACION DE TAREAS
     let tarea1 = {idTarea: 8, tituloTarea: 'Primera tarea', descrpcionTarea: 'Primera descripcion de la tarea', fechaTarea: '2021-11-31 15:53:10',enlaceTarea: './src/ihc_tarea.pdf',puntos: 10 ,fechaExpTarea: '2021-12-30 18:00:00'};
-    let tarea2 = {idTarea: 7, tituloTarea: 'Primera tarea', descrpcionTarea: 'Primera descripcion de la tarea', fechaTarea: '2021-11-31 15:53:10',enlaceTarea: './src/ihc_tarea.pdf',puntos: 10 ,fechaExpTarea: '2021-12-30 18:00:00'};
-    let tarea3 = {idTarea: 6, tituloTarea: 'Primera tarea', descrpcionTarea: 'Primera descripcion de la tarea', fechaTarea: '2021-11-31 15:53:10',enlaceTarea: './src/ihc_tarea.pdf',puntos: 10 ,fechaExpTarea: '2021-12-30 18:00:00'};
-    let tarea4 = {idTarea: 5, tituloTarea: 'Primera tarea', descrpcionTarea: 'Primera descripcion de la tarea', fechaTarea: '2021-11-31 15:53:10',enlaceTarea: './src/ihc_tarea.pdf',puntos: 10 ,fechaExpTarea: '2021-12-30 18:00:00'};
-    let tarea5 = {idTarea: 4, tituloTarea: 'Primera tarea', descrpcionTarea: 'Primera descripcion de la tarea', fechaTarea: '2021-11-31 15:53:10',enlaceTarea: './src/ihc_tarea.pdf',puntos: 10 ,fechaExpTarea: '2021-12-30 18:00:00'};
-    let tarea6 = {idTarea: 3, tituloTarea: 'Primera tarea', descrpcionTarea: 'Primera descripcion de la tarea', fechaTarea: '2021-11-31 15:53:10',enlaceTarea: './src/ihc_tarea.pdf',puntos: 10 ,fechaExpTarea: '2021-12-30 18:00:00'};
-    let tarea7 = {idTarea: 2, tituloTarea: 'Primera tarea', descrpcionTarea: 'Primera descripcion de la tarea', fechaTarea: '2021-11-31 15:53:10',enlaceTarea: './src/ihc_tarea.pdf',puntos: 10 ,fechaExpTarea: '2021-12-30 18:00:00'};
-    let tarea8 = {idTarea: 1, tituloTarea: 'Primera tarea', descrpcionTarea: 'Primera descripcion de la tarea', fechaTarea: '2021-11-31 15:53:10',enlaceTarea: './src/ihc_tarea.pdf',puntos: 10 ,fechaExpTarea: '2021-12-30 18:00:00'};
+    let tarea2 = {idTarea: 7, tituloTarea: 'Segunda tarea', descrpcionTarea: 'Segunda descripcion de la tarea', fechaTarea: '2021-11-24 10:53:15',enlaceTarea: './src/ihc_tarea.pdf',puntos: 10 ,fechaExpTarea: '2021-12-30 18:00:00'};
+    let tarea3 = {idTarea: 6, tituloTarea: 'Tercera tarea', descrpcionTarea: 'Tercera descripcion de la tarea', fechaTarea: '2021-12-21 13:51:29',enlaceTarea: './src/ihc_tarea.pdf',puntos: 10 ,fechaExpTarea: '2021-12-30 18:00:00'};
     let arrayTareas = new Array();
     arrayTareas.push(tarea1);
     arrayTareas.push(tarea2);
     arrayTareas.push(tarea3);
-    arrayTareas.push(tarea4);
-    arrayTareas.push(tarea5);
-    arrayTareas.push(tarea6);
-    arrayTareas.push(tarea7);
-    arrayTareas.push(tarea8);
-
     let materia1 = {idMateria: 1, idDocente: 11,  nombreMateria:'Calculo I',docente:'Juan Miguel lopez',fecha: '2021-12-26', inscritos: [1], anuncios, arrayTareas};
     let materia2 = {idMateria: 2, idDocente: 12,  nombreMateria:'Algrebra I',docente:'Carlos Montaño Mendez',fecha: '2021-12-25', inscritos: [1], anuncios, arrayTareas};
     let materia3 = {idMateria: 3, idDocente: 3,  nombreMateria:'Ingles I',docente:'Liliana Antezana Perez',fecha: '2021-12-21', inscritos: [1], anuncios, arrayTareas};
@@ -171,11 +161,13 @@ function cargarMaterias(){
 function cargarUsuario(){
     let tareasUsuario = new Array();
     let usuario1 = {idEstudiante: 1, nombreEstudiante:'Oscar Copa Wilde', tareasUsuario};
-    let usuario2 = {idEstudiante:2, nombreEstudiante:'Carlos Vidal Calle', tareasUsuario};
-    let usuario3 = {idEstudiante:3, nombreEstudiante:'Liliana Antezana Perez', tareasUsuario};
+    let usuario2 = {idEstudiante: 2, nombreEstudiante:'Carlos Vidal Calle', tareasUsuario};
+    let usuario3 = {idEstudiante: 3, nombreEstudiante:'Liliana Antezana Perez', tareasUsuario};
 
     // console.log(usuario);
     localStorage.setItem('usuarioActual',JSON.stringify(usuario1));
+
+    
     arrayUsuarios = new Array();
     arrayUsuarios.push(usuario1);
     arrayUsuarios.push(usuario2);
